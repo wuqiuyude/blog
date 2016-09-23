@@ -1,0 +1,19 @@
+extends layout
+block content
+  div.main
+    div.centent.left
+      each article in articles
+        ul.list
+          li
+            div.article
+              h2.title= article.title
+              each tag in tagList
+                p= tag.name
+              div.info
+                span.time= article.time
+                span.tag= article.tag
+                span.category= article.category
+              div.main!= article.content
+              a.more READ MORE
+
+    include common/aside

@@ -1,0 +1,128 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+    link(rel='stylesheet', href='/editor.md/css/editormd.min.css')
+    link(rel='stylesheet', href='/stylesheets/admin.css')
+    script(src="/javascripts/jquery.min.js")
+    script(src="/editor.md/editormd.min.js")
+    script.
+      $(function() {
+        var testEditor = editormd("test-editormd", {
+            path : '/editor.md/lib/'
+        });
+      });
+    style.
+      #test-editormd{
+        height:580px !important;
+        margin: 0 auto;
+      }
+  body
+    section#container
+      header.header.black-bg.
+        <a href="index.html" class="logo"><b>Qiuyu Blog</b></a>
+      aside.
+        <div id="sidebar" class="nav-collapse " tabindex="5000" style="overflow: hidden; outline: none; margin-left: 0px;">
+              <!-- sidebar menu start-->
+              <ul class="sidebar-menu" id="nav-accordion" style="display: block;">
+                  <li class="sub-menu dcjq-parent-li">
+                      <a class="active dcjq-parent" href="javascript:;">
+                          <i class="fa fa-tasks"></i>
+                          <span>blog</span>
+                      <span class="dcjq-icon"></span></a>
+                  </li>
+              </ul>
+              <!-- sidebar menu end-->
+          </div>
+      section#main-content
+        section#wrapper.main
+          h3
+            i.fa.fa-angle-right 
+            编写博客
+          div.row
+            div.showback
+              form.form-horizontal.style-form
+                div.form-group
+                  label.col-sm-1.control-label 标题:
+                  div.col-sm-5
+                    - if(blog)
+                      input(placeholder='请输入标题').form-control#title=blog.title
+                    - else 
+                      input(placeholder='请输入标题').form-control#title
+                div.form-group
+                  div.col-lg-3
+                    label.col-lg-5.control-label 分类：
+                    div.col-lg-7
+                      select#selectCatagory.form-control
+                        option(selected) 请选择分类
+                        each catagory in catagoryList
+                          - if(blog && blog.catagory == catagory.name)
+                            option(selected)=catagory.name
+                          - else
+                            option=catagory.name
+                  div.col-lg-3
+                    label.col-lg-5.control-label 标签：
+                    div.col-lg-7
+                      select#selectTag.form-control
+                        option(selected) 请选择标签
+                        each tag in tagList
+                          - if(blog && blog.tag == tag.name)
+                            option(selected)=tag.name
+                          - else
+                            option=tag.name
+                  div.col-lg-3
+                    label.col-lg-5.control-label 类型：
+                    div.col-lg-7
+                      select#selectTag.form-control
+                        option(selected) 请选择类型
+                        each type in typeList
+                          - if(type && type.tag == type.name)
+                            option(selected)=type.name
+                          - else
+                            option=type.name
+                  div.col-lg-3
+                    a(href="javascript:void(0);").btn.btn-success#submit 提交
+          div.row.mt
+            div.col-lg-12
+              div#test-editormd
+                - if(blog)
+                  textarea#blog=blog.blog
+                - else
+                  textarea#blog
+
+    script.
+      $('#submit').click(function(){
+        if($('#title').val() == "") {
+          alert('标题不能为空')
+          return
+        }
+        if($('#blog').val() == "") {
+          alert('内容不能为空')
+          return
+        }
+        var data = {
+          'title': $('#title').val(),
+          'blog': $('#blog').val()
+        }
+        var tag, catagory;
+        if($('#selectTag option:selected').text()!== '请选择标签'){
+          data['tag'] = $('#selectTag option:selected').text()
+        }
+        if($('#selectCatagory option:selected').text()!== '请选择分类'){
+          data['catagory'] = $('#selectCatagory option:selected').text()
+        }
+        $.ajax({
+          url: '/blog/add',
+          type: 'post',
+          data: data,
+          success: function(res) {
+            alert('创建成功！')
+            window.location.href = '/'
+          },
+          error: function(res) {
+            alert(res.statusText)
+          }
+        })
+      })
+   
