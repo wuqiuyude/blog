@@ -3,18 +3,23 @@ html
   head
     title= title
     link(rel='stylesheet', href='http://kevinburke.bitbucket.org/markdowncss/markdown.css')
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/main.css')
   body
-    div.head
-      div.title
-        h1 CODE
-        h3 ON THE
-        h1 ROAD
-      ul.nav
-        li.blog
-          a(href='/') blog
-        li.about
-          a(href='/about') about
-        li.contact
-          a(href='/contact') contact
-    block content
+    div.wrapper
+      div.head
+        div.title
+          h1 qiuyu
+        ul.nav.icon-menu
+          li.blog
+            a(href='/') blog
+          li.about
+            a(href='/about') about
+          li.contact
+            a(href='/contact') contact
+      block content
+    div.footer
+      ul
+        li wuqiuyu
+        li blog
+        li about
+        li contact

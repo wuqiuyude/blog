@@ -1,0 +1,20 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='http://kevinburke.bitbucket.org/markdowncss/markdown.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    div.head
+      div.title
+        h1 
+        h3 
+        h1 
+      ul.nav
+        li.blog
+          a(href='/') blog
+        li.about
+          a(href='/about') about
+        li.contact
+          a(href='/contact') contact
+    block content
