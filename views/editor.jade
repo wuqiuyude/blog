@@ -27,9 +27,15 @@ html
               <!-- sidebar menu start-->
               <ul class="sidebar-menu" id="nav-accordion" style="display: block;">
                   <li class="sub-menu dcjq-parent-li">
-                      <a class="active dcjq-parent" href="javascript:;">
+                      <a class="active dcjq-parent" href="/bloglist">
                           <i class="fa fa-tasks"></i>
-                          <span>blog</span>
+                          <span>blog list</span>
+                      <span class="dcjq-icon"></span></a>
+                  </li>
+                   <li class="sub-menu dcjq-parent-li">
+                      <a class="dcjq-parent" href="/editor">
+                          <i class="fa fa-tasks"></i>
+                          <span>add blog</span>
                       <span class="dcjq-icon"></span></a>
                   </li>
               </ul>
@@ -74,7 +80,7 @@ html
                   div.col-lg-3
                     label.col-lg-5.control-label 类型：
                     div.col-lg-7
-                      select#selectTag.form-control
+                      select#selectType.form-control
                         option(selected) 请选择类型
                         each type in typeList
                           - if(type && type.tag == type.name)
@@ -112,9 +118,12 @@ html
         if($('#selectCatagory option:selected').text()!== '请选择分类'){
           data['catagory'] = $('#selectCatagory option:selected').text()
         }
+        if($('#selectType option:selected').text()!== '请选择分类'){
+          data['type'] = $('#selectType option:selected').text()
+        }
         $.ajax({
           url: '/blog/add',
-          type: 'post',
+          type: 'POST',
           data: data,
           success: function(res) {
             alert('创建成功！')

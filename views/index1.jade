@@ -1,7 +1,7 @@
 extends layout
 block content
   div.main
-    div.content.left
+    div.centent.left
         ul.list
           each article in articles
             li
@@ -18,4 +18,5 @@ block content
                   span.type.item= article.type
                 div.main!= article.blog
                 a(href='/blog/'+article.id).more READ MORE
+
     include common/aside
