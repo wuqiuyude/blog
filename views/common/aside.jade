@@ -10,19 +10,19 @@ block aside
       ul.catagory
         each catagory in catagoryList
           li 
-            a(herf='/blog/')= catagory.name
+            a(href='/blog/catagory/'+catagory.id)= catagory.name
     div.box
       h3 Tags
       ul.tag
         each tag in tagList
           li 
-            a(herf='/blog/')= tag.name
+            a(href='/blog/tag/'+tag.id)= tag.name
     div.box
       h3 Follow Me on
       ul.follow
         li
-          a(herf='/blog/').icon-sina-weibo
+          a(href='http://weibo.com/2000613821/profile?topnav=1&wvr=6&is_all=1').icon-sina-weibo
         li
-          a(herf='/blog/').icon-renren
+          a(href='http://www.renren.com/371158320/profile').icon-renren
         li
-          a(herf='/blog/').icon-linkedin
+          a(href='http://www.linkedin.com/in/wu-qiuyu-452b3282?trk=nav_responsive_tab_profile_pic').icon-linkedin
