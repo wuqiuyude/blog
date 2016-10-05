@@ -3,19 +3,36 @@ block content
   div.main
     div.content.left
         ul.list
-          each article in articles
-            li
-              div.article
-                h2.title= article.title
-                div.info
-                  span.time= article.time
-                  span.icon-bookmark
-                  span.tag.item= article.tag
-                  span.icon-bookmark
-                  span.catagory.item= article.catagory
-                  - if(article.type)
-                    span.icon-bookmark
-                  span.type.item= article.type
-                div.main!= article.blog
-                a(href='/blog/'+article.id).more READ MORE
+          li
+            div.article
+              h2.title 
+                a(href="/blog/") article.title
+              div.info
+                span.time article.time
+                span.icon-bookmark
+                span.tag.item article.tag
+                span.icon-bookmark
+                span.catagory.item article.catagory
+                span.icon-bookmark
+                span.type.item article.type
+              div.main article.blog
+              div.link
+                a(href='/blog/').more READ MORE
+        //- ul.list
+        //-   each article in articles
+        //-     li
+        //-       div.article
+        //-         h2.title= article.title
+        //-         div.info
+        //-           span.time= article.time
+        //-           span.icon-bookmark
+        //-           span.tag.item= article.tag
+        //-           span.icon-bookmark
+        //-           span.catagory.item= article.catagory
+        //-           - if(article.type)
+        //-             span.icon-bookmark
+        //-           span.type.item= article.type
+        //-         div.main!= article.blog
+        //-         div.link
+        //-           a(href='/blog/'+article.id).more READ MORE
     include common/aside

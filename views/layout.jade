@@ -6,20 +6,21 @@ html
     link(rel='stylesheet', href='/stylesheets/main.css')
   body
     div.wrapper
-      div.head
+      div.head(style="background-image: url(../images/cropped-header-image.png);background-size:cover")
         div.title
-          h1 qiuyu
-        ul.nav.icon-menu
+          h1 Qiuyu's Blog
+          h4 a web engineer's blog
+      div.nav
+        ul
           li.blog
             a(href='/') blog
           li.about
             a(href='/about') about
           li.contact
             a(href='/contact') contact
+    div.container
       block content
     div.footer
-      ul
-        li wuqiuyu
-        li blog
-        li about
-        li contact
+      h4 
+        | Copyright © 2016 Qiuyu's Blog. All rights reserved. Powered by 
+        | Wuqiuyu  & Designed by Daisy Themes
