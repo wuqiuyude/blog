@@ -1,13 +1,28 @@
-div.aside
-  div.box
-    img(src='./images/pr.png').avator
-    p 
-      | I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double 
-      | click me to add your own content and make changes to the font. I’m a great place for you to tell a story 
-      | and let your users know a little more about you.
-  div.box
-    ul.clearfix
-      li 全部
-      each catagory in catagoryList
+block aside
+  div.aside
+    //- div.box
+    //-   h3 Search
+    //-   form
+    //-     input(type="search",placeholder="search...")
+    //-     input(type="submit",value="search")
+    div.box
+      h3 catagorys
+      ul.catagory
+        each catagory in catagoryList
+          li 
+            a(herf='/blog/')= catagory.name
+    div.box
+      h3 Tags
+      ul.tag
+        each tag in tagList
+          li 
+            a(herf='/blog/')= tag.name
+    div.box
+      h3 Follow Me on
+      ul.follow
         li
-          a(herf='/blog/'+catagory.name)=catagory.name
+          a(herf='/blog/').icon-sina-weibo
+        li
+          a(herf='/blog/').icon-renren
+        li
+          a(herf='/blog/').icon-linkedin

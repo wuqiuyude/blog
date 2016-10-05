@@ -4,6 +4,8 @@
   "private": true,
   "scripts": {
     "start": "forever ./bin/www","stop": "forever stop ./bin/www"  },
+
+  },
   "dependencies": {
     "body-parser": "^1.15.2",
     "cookie-parser": "^1.4.3",
