@@ -648,6 +648,9 @@ input::-webkit-input-placeholder {
 .nav li a:hover{
   color:#17bebb; 
 }
+.nav li a.active{
+  color:#17bebb; 
+}
 
 @media (min-width: 1200px)
 .container {
@@ -827,6 +830,7 @@ input::-webkit-input-placeholder {
 .article .info span.item,
 .article .info span.time {
   margin-right: 20px;
+  font-size: 14px;
 }
 
 .article .main {

@@ -1,10 +1,10 @@
 extends layout
 block content
-  div.main
+  div.main.clearfix
     div.content.left
         ul.list
-          li
-            each article in articles
+          each article in articles
+            li
               div.article
                 h2.title 
                   a(href="/blog/"+article.id)= article.title

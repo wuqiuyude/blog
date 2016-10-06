@@ -1,15 +1,19 @@
 extends layout
 block content
   div.main
+    div.content.left
       div.article.detail
         h2.title= article.title
         div.info
           span.time= article.time
-          span.icon-bookmark
-          span.tag.item= article.tag
-          span.icon-bookmark
-          span.catagory.item= article.catagory
+          - if(article.tag)
+            span.icon-bookmark
+            span.tag.item= article.tag
+          - if(article.catagory)
+            span.icon-bookmark
+            span.catagory.item= article.catagory
           - if(article.type)
             span.icon-bookmark
             span.type.item= article.type
         div.main!= article.blog
+    include common/aside
