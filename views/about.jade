@@ -1,3 +1,26 @@
-extends layout
-block content
-  div.main
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='http://kevinburke.bitbucket.org/markdowncss/markdown.css')
+    link(rel='stylesheet', href='/stylesheets/main.css')
+    script(src="/javascripts/jquery.min.js")
+  body
+    div.wrapper
+      div.head(style="background-image: url(../images/cropped-header-image.png);background-size:100%")
+        div.title
+          h1 Qiuyu's Blog
+          h4 hi, I am a web developer
+      div.nav
+        ul
+          li.blog
+            a(href='/') blog
+          li.about
+            a(href='/about').active about
+          li.contact
+            a(href='/contact') contact
+    div.about
+    div.footer
+      h4 
+        | Copyright © 2016 Qiuyu's Blog. All rights reserved. Powered by 
+        | Wuqiuyu  & Designed by Daisy Themes

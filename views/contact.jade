@@ -1,0 +1,60 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='http://kevinburke.bitbucket.org/markdowncss/markdown.css')
+    link(rel='stylesheet', href='/stylesheets/main.css')
+    script(src="/javascripts/jquery.min.js")
+  body
+    div.wrapper
+      div.head(style="background-image: url(../images/cropped-header-image.png);background-size:100%")
+        div.title
+          h1 Qiuyu's Blog
+          h4 hi, I am a web developer
+      div.nav
+        ul
+          li.blog
+            a(href='/') blog
+          li.about
+            a(href='/about') about
+          li.contact
+            a(href='/contact').active contact
+    div.container
+      div.main.clearfix
+        div.content.blog.left.clearfix
+          h3 Contact me
+          form
+            p Your name
+            input(type="text" required).name
+            p Your Email
+            input(type="text" required).email
+            p Subject
+            input(type="text" required).subject
+            p Your Message
+            textarea(type="text" required).message
+            input(type="button" value="send" required)#send
+        include common/aside
+    div.footer
+      h4 
+        | Copyright © 2016 Qiuyu's Blog. All rights reserved. Powered by 
+        | Wuqiuyu  & Designed by Daisy Themes
+    script.
+      $('#send').click(function(e){
+        var mailOptions = {
+          subject:  $('.subject').val() +'——form:' + $('.email').val()+'——name:'+$('.name').val(),
+          html:$('.message').val()
+        };
+        $.ajax({
+              url: '/sendEmail',
+              type: 'POST',
+              data: mailOptions,
+              success: function(res) {
+                alert('发送成功！')
+                window.location.href = '/'
+              },
+              error: function(res) {
+                alert(res.statusText)
+              }
+            })
+        e.defaultprevented
+      })
