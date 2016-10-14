@@ -12,7 +12,9 @@ html
           h1 Qiuyu's Blog
           h4 hi, I am a web developer
       div.nav
-        ul
+        div.menu Menu
+          i.icon.icon-menu
+        ul.navbar
           li.blog
             a(href='/') blog
           li.about
@@ -57,4 +59,9 @@ html
               }
             })
         e.defaultprevented
+      })
+      $('.menu').click(function(){
+        $('.navbar').slideToggle('slow')
+        $(this).find('i').toggleClass('icon-menu')
+        $(this).find('i').toggleClass('icon-cross')
       })

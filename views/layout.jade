@@ -4,6 +4,7 @@ html
     title= title
     link(rel='stylesheet', href='http://kevinburke.bitbucket.org/markdowncss/markdown.css')
     link(rel='stylesheet', href='/stylesheets/main.css')
+    script(src="/javascripts/jquery.min.js")
   body
     div.wrapper
       div.head(style="background-image: url(../images/cropped-header-image.png);background-size:100%")
@@ -11,7 +12,9 @@ html
           h1 Qiuyu's Blog
           h4 Hi, I am a web developer
       div.nav
-        ul
+        div.menu Menu
+          i.icon.icon-menu
+        ul.navbar
           li.blog
             a(href='/').active blog
           li.about
@@ -24,3 +27,9 @@ html
       h4 
         | Copyright © 2016 Qiuyu's Blog. All rights reserved. Powered by 
         | Wuqiuyu  & Designed by Daisy Themes
+    script.
+      $('.menu').click(function(){
+        $('.navbar').slideToggle('slow')
+        $(this).find('i').toggleClass('icon-menu')
+        $(this).find('i').toggleClass('icon-cross')
+      })
