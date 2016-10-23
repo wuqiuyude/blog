@@ -22,8 +22,8 @@ block content
                     span.type.item= article.type
                   - if(article.watch_count)
                     span.icon-eye
-                    span.type.item= article.watch_count
-                div.main!= article.blog
+                    span.type.item.count= article.watch_count
+                div.main.markdown-body!= article.blog
                 div.link
                   a(href='/blog/'+article.id).more READ MORE
         include common/pagination
