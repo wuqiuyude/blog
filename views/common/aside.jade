@@ -1,10 +1,10 @@
 block aside
   div.aside
-    //- div.box
-    //-   h3 Search
-    //-   form
-    //-     input(type="search",placeholder="search...")
-    //-     input(type="submit",value="search")
+    div.box
+       h3 Search
+       form
+         input(type="text",placeholder="search...").search
+         input(type="button",value="search")
     div.box
       h3 catagorys
       ul.catagory
@@ -26,3 +26,9 @@ block aside
           a(href='http://www.renren.com/371158320/profile').icon-renren
         li
           a(href='http://www.linkedin.com/in/wu-qiuyu-452b3282?trk=nav_responsive_tab_profile_pic').icon-linkedin
+  script.
+     $("input[type='button']").click(function(e){
+        var domain = window.location.host
+        var url ='/?search=' + $('.search').val()
+        window.location.href = url
+      })

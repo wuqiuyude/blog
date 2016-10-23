@@ -2,11 +2,11 @@ block pagination
     - if (paginate.last>1)
       div#pagination
         - if (paginate.prev)
-          a(href=url+"?page="+paginate.prev).pagination-item.prev.icon-prev prev
+          a(href=url+search+"page="+paginate.prev).pagination-item.prev.icon-prev prev
         - for (var i=paginate.first;i<=paginate.last;i++)
           - if (paginate.page == i)
-            a(href=url+"?page="+i).pagination-item.active=i
+            a(href=url+search+"page="+i).pagination-item.active=i
           - else
-            a(href=url+"?page="+i).pagination-item=i
+            a(href=url+search+"page="+i).pagination-item=i
         - if (paginate.next)
-          a(href=url+"?page="+paginate.next).pagination-item.next.icon-next next
+          a(href=url+search+"page="+paginate.next).pagination-item.next.icon-next next

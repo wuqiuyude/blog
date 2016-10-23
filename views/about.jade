@@ -5,8 +5,8 @@ html
     link(rel='stylesheet', href='http://kevinburke.bitbucket.org/markdowncss/markdown.css')
     link(rel='stylesheet', href='/stylesheets/main.css')
     script(src="/javascripts/jquery.min.js")
-  body
-    div.wrapper
+  body.clearfix
+    div.wrapper.clearfix
       div.head(style="background-image: url(../images/cropped-header-image.png);background-size:100%")
         div.title
           h1 Qiuyu's Blog
@@ -14,15 +14,24 @@ html
       div.nav
         div.menu Menu
           i.icon.icon-menu
-        ul.navbar
+        ul.navbar.clearfix
           li.blog
             a(href='/') blog
           li.about
             a(href='/about').active about
           li.contact
             a(href='/contact') contact
-    div.about
-      
+    div.container
+      div.about
+        div.litte-circle
+        div.big-circle
+        div.hi
+        div.home
+        div.avator
+          img(src="../images/avator.jpg")
+        div.info
+          h2 Hi 大家好！ 我是吴秋雨
+          p 我2016年毕业于武汉大学国际软件学院，现在在路口工作，是一名前端开发，这是我的个人站点，我会这里分享我的学习经验。
     div.footer
       h4 
         | Copyright © 2016 Qiuyu's Blog. All rights reserved. Powered by 

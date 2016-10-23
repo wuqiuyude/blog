@@ -9,6 +9,7 @@ block content
                 h2.title 
                   a(href="/blog/"+article.id)= article.title
                 div.info
+                  span.icon-alarm
                   span.time= article.time
                   - if(article.tag)
                     span.icon-bookmark
@@ -19,6 +20,9 @@ block content
                   - if(article.type)
                     span.icon-bookmark
                     span.type.item= article.type
+                  - if(article.watch_count)
+                    span.icon-eye
+                    span.type.item= article.watch_count
                 div.main!= article.blog
                 div.link
                   a(href='/blog/'+article.id).more READ MORE
