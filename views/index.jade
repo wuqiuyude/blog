@@ -23,7 +23,7 @@ block content
                   - if(article.watch_count)
                     span.icon-eye
                     span.type.item.count= article.watch_count
-                div.main.markdown-body!= article.blog
+                div.main.markdown-body.editormd-preview-container!= article.blog
                 div.link
                   a(href='/blog/'+article.id).more READ MORE
         include common/pagination
