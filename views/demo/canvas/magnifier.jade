@@ -32,14 +32,11 @@ html
 
             canvas.width = 1152
             canvas.height = 768
-
-            image.src = "img-lg.jpg"
+            image.src = "../../images/img-lg.jpg"
             image.onload = function(){
-
                 offCanvas.width = image.width
                 offCanvas.height = image.height
                 scale = offCanvas.width / canvas.width
-
                 context.drawImage( image , 0 , 0 , canvas.width , canvas.height )
                 offContext.drawImage( image , 0 , 0 )
             }
