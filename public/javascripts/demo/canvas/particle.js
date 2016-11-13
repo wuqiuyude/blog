@@ -1,11 +1,8 @@
 // 粒子
-function PraticleView(options, canvas){
+function PraticleView(canvas){
     if (this === window) {
-        return new PraticleView(options, canvas);
+        return new PraticleView(canvas);
     }
-    this.img = options.image;//背景图片
-    this.options = options;
-    this.options.crop = [0, 0, this.img.naturalWidth, this.img.naturalHeight]
     this.praticles = [];
     this.canvas = canvas || this.prepareCanvas();
     this.ctx = canvas.getContext('2d')
@@ -60,7 +57,7 @@ PraticleView.prototype.animate = function() {
     window.requestAnimFrame(this.animate.bind(this))
 }
 PraticleView.prototype.setRequestAnimFrame = function() {
-    var fps = this.options.fps;
+    var fps = 60;
     window.requestAnimFrame = (function() {
         return window.requestAnimationFrame ||
             window.webkitRequestAnimationFrame ||
@@ -115,13 +112,5 @@ window.onload = function(){
     var canvas = document.getElementById('canvas');
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-    var img = new Image()
-    img.src = 'bg.jpg'
-    img.onload = function() {
-        var options = {
-            image: this
-        }
-        var particleView = PraticleView(options, canvas)              
-    }; 
-    
+    var particleView = PraticleView(canvas)
 }
