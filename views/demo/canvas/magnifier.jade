@@ -3,9 +3,9 @@ html
   head
     title= title
     style.
-    	body{
-    		background: black;
-    	}
+      body{
+        background: black;
+      }
       #canvas{
         display:block;
         margin:0 auto;
@@ -14,13 +14,12 @@ html
       #offcanvas {
         display:none;
       }
-
   body
-  	canvas#canvas
+    canvas#canvas
     canvas#offcanvas
     script.
       var canvas = document.getElementById("canvas")
-        var context = canvas.getContext("2d")
+      var context = canvas.getContext("2d")
 
         var offCanvas = document.getElementById("offCanvas")
         var offContext = offCanvas.getContext("2d")
